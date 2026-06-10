@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản lý danh sách sản phẩm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+
+  <div class="header-banner">
+    <h1>Quản lý danh sách sản phẩm</h1>
+    <p>Giao diện nhập liệu và hiển thị danh sách sản phẩm một cách trực quan, rõ ràng.</p>
+  </div>
+
+
+  <div class="main-container">
+    <div class="row g-4">
+
+
+      <div class="col-12 col-md-5">
+        <div class="card-box">
+          <h5 class="box-title">Thêm sản phẩm mới</h5>
+          <p class="box-sub">Nhập đầy đủ thông tin để thêm sản phẩm vào danh sách.</p>
+
+
+          <div class="form-group-custom">
+            <label for="inputName">Tên sản phẩm</label>
+            <input type="text" id="inputName" class="input-custom"
+              placeholder="Nhập tên sản phẩm" maxlength="100"/>
+            <div class="err-msg" id="errName">
+              Tên sản phẩm không được để trống hoặc vượt quá 100 ký tự!
+            </div>
+          </div>
+
+
+          <div class="form-group-custom">
+            <label for="inputCategory">Danh mục</label>
+            <select id="inputCategory" class="input-custom">
+              <option value="">-- Chọn danh mục --</option>
+              <option>Điện thoại</option>
+              <option>Máy tính bảng</option>
+              <option>Laptop</option>
+              <option>Phụ kiện</option>
+              <option>Tai nghe</option>
+            </select>
+            <div class="err-msg" id="errCategory">Vui lòng chọn danh mục!</div>
+          </div>
+
+
+          <div class="form-group-custom">
+            <label for="inputPrice">Giá</label>
+            <input type="number" id="inputPrice" class="input-custom"
+              placeholder="Nhập giá" min="0"/>
+            <div class="err-msg" id="errPrice">Giá không hợp lệ!</div>
+          </div>
+
+          <div class="form-group-custom">
+            <label for="inputStatus">Trạng thái còn hàng</label>
+            <select id="inputStatus" class="input-custom">
+              <option value="Còn hàng">Còn hàng</option>
+              <option value="Hết hàng">Hết hàng</option>
+            </select>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn-primary-custom" onclick="addProduct()">Thêm sản phẩm</button>
+            <button class="btn-secondary-custom" onclick="resetForm()">Làm mới form</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-7">
+        <div class="card-box">
+          <h5 class="box-title">Danh sách sản phẩm</h5>
+          <p class="box-sub">Danh sách sản phẩm mẫu được hiển thị từ dữ liệu hệ thống.</p>
+
+          <div class="table-responsive">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>TÊN SẢN PHẨM</th>
+                  <th>DANH MỤC</th>
+                  <th>GIÁ</th>
+                  <th>TRẠNG THÁI</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="productTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="data/data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
